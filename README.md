@@ -1,2 +1,2 @@
 # cprog
-Repo contains my first programming experience
+Repo contains my first programming experience.
