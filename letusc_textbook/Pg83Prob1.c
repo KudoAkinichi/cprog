@@ -14,7 +14,6 @@ int main()
             otpay=0;
         printf("Hours=%d\nOvertime pay=Rs.%f\n",hour,otpay);
         i++;
-    
     }
     return 0;
 }
