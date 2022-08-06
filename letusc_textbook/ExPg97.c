@@ -12,8 +12,6 @@ int main()
         {
             printf("Not a prime number\n");
             break;
-    
-    
         }
         i++;
     }
