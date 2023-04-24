@@ -2,39 +2,30 @@
 
 #include <stdio.h>
 
-// Function to add the elements of two arrays
-void addArrays(int arr1[], int arr2[], int sum[], int size) {
-    for (int i = 0; i < size; i++) {
+void addArrays(int arr1[], int arr2[], int n) {
+    int sum[n];
+    for(int i = 0; i < n; i++) {
         sum[i] = arr1[i] + arr2[i];
+    }
+    printf("Sum of arrays: ");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", sum[i]);
     }
 }
 
 int main() {
-    int size;
-    printf("Enter the size of the arrays: ");
-    scanf("%d", &size);
-
-    int arr1[size], arr2[size], sum[size];
-
-    printf("Enter the elements of first array:\n");
-    for (int i = 0; i < size; i++) {
-        printf("Enter element %d: ", i + 1);
+    int n;
+    printf("Enter the size of arrays: ");
+    scanf("%d", &n);
+    int arr1[n], arr2[n];
+    printf("Enter the values of first array: ");
+    for(int i = 0; i < n; i++) {
         scanf("%d", &arr1[i]);
     }
-
-    printf("Enter the elements of second array:\n");
-    for (int i = 0; i < size; i++) {
-        printf("Enter element %d: ", i + 1);
+    printf("Enter the values of second array: ");
+    for(int i = 0; i < n; i++) {
         scanf("%d", &arr2[i]);
     }
-
-    // Call the addArrays function to add the elements of the two arrays
-    addArrays(arr1, arr2, sum, size);
-
-    printf("Sum of the arrays: ");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", sum[i]);
-    }
-
+    addArrays(arr1, arr2, n);
     return 0;
 }
