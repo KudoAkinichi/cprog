@@ -17,15 +17,13 @@ int main() {
             break;
         }
         
-        if (num % 2 == 0) {
-            printf("Even number is entered. Skipping it.\n");
-            continue;
+        if (num % 2 != 0) {
+            sum += num;
         }
-        
-        sum += num;
     }
     
-    printf("The sum of positive odd numbers entered is: %d\n", sum);
+    printf("The sum of positive numbers entered is: %d\n", sum);
     
     return 0;
 }
+
