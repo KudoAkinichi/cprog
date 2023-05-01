@@ -5,7 +5,7 @@
 // 4. Compare 2 string
 // 5. Copy 2 strings
 // 6. Reverse 2 strings
-// 7. Upper 
-// 8. Lower
+// 7. Upper case to lower case
+// 8. Lower case to upper case
 
 
