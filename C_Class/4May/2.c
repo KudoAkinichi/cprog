@@ -2,58 +2,42 @@
 
 #include <stdio.h>
 
-// Define a structure to represent student records
-struct Student {
-    int roll_no;
-    char name[50];
-    int marks[5];
-    float avg_marks;
+// Define a structure to represent time values in hours, minutes, and seconds
+struct Time {
+    int hours;
+    int minutes;
+    int seconds;
 };
 
 int main() {
-    int n, i, j;
-    float sum;
+    // Declare two time variables
+    struct Time t1, t2, diff;
 
-    // Read in the number of students
-    printf("Enter the number of students: ");
-    scanf("%d", &n);
+    // Read in the first time value
+    printf("Enter time 1 (hh mm ss): ");
+    scanf("%d %d %d", &t1.hours, &t1.minutes, &t1.seconds);
 
-    // Declare an array of student records
-    struct Student students[n];
+    // Read in the second time value
+    printf("Enter time 2 (hh mm ss): ");
+    scanf("%d %d %d", &t2.hours, &t2.minutes, &t2.seconds);
 
-    // Read in the details of each student
-    for (i = 0; i < n; i++) {
-        printf("\nEnter details for student %d:\n", i+1);
-        printf("Roll No: ");
-        scanf("%d", &students[i].roll_no);
-        printf("Name: ");
-        scanf("%s", students[i].name);
-        printf("Enter marks for 5 subjects: ");
-        for (j = 0; j < 5; j++) {
-            scanf("%d", &students[i].marks[j]);
-        }
+    // Subtract the second time value from the first
+    diff.seconds = t1.seconds - t2.seconds;
+    diff.minutes = t1.minutes - t2.minutes;
+    diff.hours = t1.hours - t2.hours;
+
+    // Adjust for negative seconds or minutes
+    if (diff.seconds < 0) {
+        diff.seconds += 60;
+        diff.minutes--;
+    }
+    if (diff.minutes < 0) {
+        diff.minutes += 60;
+        diff.hours--;
     }
 
-    // Calculate the average marks for each student
-    for (i = 0; i < n; i++) {
-        sum = 0.0;
-        for (j = 0; j < 5; j++) {
-            sum += students[i].marks[j];
-        }
-        students[i].avg_marks = sum / 5;
-    }
-
-    // Print out the details of each student, including their average marks
-    printf("\nStudent details:\n");
-    for (i = 0; i < n; i++) {
-        printf("\nRoll No: %d\n", students[i].roll_no);
-        printf("Name: %s\n", students[i].name);
-        printf("Marks: ");
-        for (j = 0; j < 5; j++) {
-            printf("%d ", students[i].marks[j]);
-        }
-        printf("\nAverage marks: %.2f\n", students[i].avg_marks);
-    }
+    // Print the difference
+    printf("Difference: %d:%d:%d\n", diff.hours, diff.minutes, diff.seconds);
 
     return 0;
 }
